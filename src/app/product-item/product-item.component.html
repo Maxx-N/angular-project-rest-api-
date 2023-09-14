@@ -1,0 +1,14 @@
+<li>
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.price }} €</p>
+  <button (click)="onToggleEditMode()">Toggle Edit Mode</button>
+  <button (click)="onDeleteProduct()">Delete</button>
+
+  <div *ngIf="isEditing">
+    <input type="text" #nameInput [value]="product.name" />
+    <input type="number" #priceInput min="1" [value]="product.price" />
+    <button (click)="onEditProduct(nameInput.value, +priceInput.value)">
+      Mettre à jour le produit
+    </button>
+  </div>
+</li>

@@ -1,0 +1,13 @@
+<div>
+  <input type="text" #nameInput value="new product" />
+  <input type="number" #priceInput min="1" value="1" />
+  <button (click)="onAddProduct(nameInput.value, +priceInput.value)">
+    Ajouter le produit
+  </button>
+</div>
+<ul>
+  <app-product-item
+    *ngFor="let product of products$ | async"
+    [product]="product"
+  ></app-product-item>
+</ul>
